@@ -1,10 +1,8 @@
-def calculate_halving(block_height):
-    base_reward = 10**18 # 10 Quintillion Unit (16 Psyche Value)
-    # Halving setiap 210.000 blok (Standard Meritocracy)
-    halvings = block_height // 210000
+def calculate_quantum_halving(block_height):
+    # Percepatan Waktu: Halving setiap 10.080 blok (Estimasi 1 Minggu)
+    # Target: 4 Kali Halving Per Bulan
+    base_reward = 10**18 # 16 Psyche Value
+    halvings = block_height // 10080
     return base_reward / (2 ** halvings)
 
-def e_forex_bridge(pair, amount):
-    print(f"🌉 BRIDGING: {amount} TPQ to {pair} via SWISS_HUB...")
-    # Pairing Logic: TPQ/USD, TPQ/ETH, TPQ/CHF
-    return True
+print("🚀 QUANTUM HALVING SCHEDULE: 4x PER MONTH ACTIVE.")
