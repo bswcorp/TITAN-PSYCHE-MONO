@@ -1,61 +1,28 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8"><title>STG | SOVEREIGN COMMAND CENTER</title>
+    <meta charset="UTF-8"><title>STG | TITAN PSYCHE RADAR</title>
     <style>
-        :root { --neon: #00f2ff; --gold: #ffd700; --bg: #050505; --warn: #ff0000; }
-        body { background: var(--bg); color: white; font-family: 'Share Tech Mono', monospace; margin: 0; display: flex; flex-direction: column; min-height: 100vh; overflow: hidden; }
-        
-        /* HEADER ABADI DENGAN AKSARA RUNNING TEXT */
-        header { border-bottom: 2px solid var(--neon); background: #000; text-align: center; position: relative; }
-        .marquee-aksara { background: rgba(0, 242, 255, 0.1); color: var(--gold); padding: 5px 0; white-space: nowrap; overflow: hidden; border-bottom: 1px solid var(--neon); font-size: 1.2rem; }
-        .marquee-aksara span { display: inline-block; padding-left: 100%; animation: marquee 20s linear infinite; }
-        
-        @keyframes marquee { 0% { transform: translate(0, 0); } 100% { transform: translate(-100%, 0); } }
-
-        #main-content { padding: 20px; flex: 1; overflow-y: auto; background: radial-gradient(circle, #0a192f 0%, #020617 100%); }
-        .nav-btn { background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; cursor: pointer; margin: 10px; font-weight: bold; text-transform: uppercase; }
-        .nav-btn:hover { background: var(--gold); color: black; box-shadow: 0 0 15px var(--gold); }
-        
-        footer { border-top: 1px solid #333; padding: 10px; font-size: 0.7rem; text-align: center; color: #555; background: #000; }
+        :root { --neon: #00f2ff; --gold: #ffd700; --warn: #ff0000; --bg: #020617; }
+        body { background: var(--bg); color: white; font-family: 'Share Tech Mono', monospace; text-align: center; margin: 0; overflow: hidden; }
+        .radar-box { border: 2px solid var(--gold); padding: 20px; margin: 50px auto; width: 300px; height: 300px; border-radius: 50%; position: relative; box-shadow: 0 0 50px rgba(255, 215, 0, 0.2); }
+        .radar-line { position: absolute; width: 50%; height: 2px; background: var(--gold); top: 50%; left: 50%; transform-origin: left; animation: scan 4s linear infinite; }
+        .aksara { font-size: 1.2rem; color: var(--neon); margin: 20px 0; }
+        @keyframes scan { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
-    <!-- 1. HEADER DENGAN RUNNING TEXT AKSARA (ABADI) -->
-    <header>
-        <div class="marquee-aksara">
-            <span>ꦱꦭꦩꦠ꧀ꦝꦠꦁꦢꦶꦏꦼꦢꦻꦴꦭꦠꦤ꧀ꦱꦠꦒꦒꦺꦴꦮ꦳ꦼꦂꦤ꧀ꦩꦼꦤ꧀꧀ | WELCOME TO STG SOVEREIGNTY - THE ARCHIVE OF TRUTH | PROBE ID: 19546 ACTIVE 📡</span>
-        </div>
-        <h1 style="margin: 10px 0;">🏛️ STG COMMAND CENTER</h1>
-        <nav>
-            <button class="nav-btn" onclick="loadContent('sirkus.html')">THE CIRCUS</button>
-            <button class="nav-btn" onclick="loadContent('mars.html')">MARS RADAR</button>
-            <button class="nav-btn" onclick="loadContent('psyche.html')">16 PSYCHE</button>
-        </nav>
-    </header>
+    <div style="padding:20px; border-bottom:1px solid var(--gold);">
+        <h1>🏛️ TITAN PSYCHE MONO</h1>
+        <div class="aksara">ꦱꦠꦒꦒꦺꦴꦮ꦳ꦼꦂꦤ꧀ꦩꦼꦤ꧀</div>
+        <p>STATUS: PROBE 19546 ACTIVE | RADAR 16 PSYCHE: SCANNING...</p>
+    </div>
 
-    <!-- 2. CONTENT (DINAMIS) -->
-    <main id="main-content">
-        <h2 style="text-align: center; color: var(--neon); margin-top: 20%;">[ SELECT MODULE TO ENGAGE ]</h2>
-    </main>
+    <div class="radar-box">
+        <div class="radar-line"></div>
+        <p style="margin-top:140px; color:var(--gold); font-size:0.7rem;">[ TARGET: 16 PSYCHE ]<br>EST. VALUE: $10 QUINTILLION</p>
+    </div>
 
-    <!-- 3. FOOTER (ABADI) -->
-    <footer>
-        ARCHITECT: ANDI M. HARPIANTO | WEB 5.0 QUANTUM-ERA | © 2026 STG GOVERNMENT
-    </footer>
-
-    <script>
-        function loadContent(page) {
-            const content = document.getElementById('main-content');
-            content.innerHTML = "<h2 style='text-align:center;'>🔄 SYNCHRONIZING WITH SWISS HUB...</h2>";
-            fetch(page)
-                .then(response => {
-                    if (!response.ok) throw new Error('File Not Found');
-                    return response.text();
-                })
-                .then(data => { content.innerHTML = data; })
-                .catch(err => { content.innerHTML = "<h2 style='color:red;'>❌ ERROR: MODUL " + page + " BELUM DISOLDER!</h2>"; });
-        }
-    </script>
+    <div style="font-size: 0.8rem; color: #444;">ARCHITECT: ANDI M. HARPIANTO | WEB 5.0 QUANTUM-ERA</div>
 </body>
 </html>
