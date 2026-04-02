@@ -5,24 +5,60 @@
     <style>
         :root { --neon: #00f2ff; --gold: #ffd700; --warn: #ff0000; --bg: #020617; }
         body { background: var(--bg); color: white; font-family: 'Share Tech Mono', monospace; text-align: center; margin: 0; overflow: hidden; }
-        .radar-box { border: 2px solid var(--gold); padding: 20px; margin: 50px auto; width: 300px; height: 300px; border-radius: 50%; position: relative; box-shadow: 0 0 50px rgba(255, 215, 0, 0.2); }
+        .radar-box { border: 2px solid var(--gold); padding: 20px; margin: 50px auto; width: 300px; height: 300px; border-radius: 50%; position: relative; box-shadow: 0 0 50px rgba(255, 215, 0, 0.1); }
         .radar-line { position: absolute; width: 50%; height: 2px; background: var(--gold); top: 50%; left: 50%; transform-origin: left; animation: scan 4s linear infinite; }
-        .aksara { font-size: 1.2rem; color: var(--neon); margin: 20px 0; }
+        .status-box { border: 1px solid var(--neon); display: inline-block; padding: 10px; margin-top: 20px; font-size: 0.8rem; }
         @keyframes scan { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
     <div style="padding:20px; border-bottom:1px solid var(--gold);">
         <h1>🏛️ TITAN PSYCHE MONO</h1>
-        <div class="aksara">ꦱꦠꦒꦒꦺꦴꦮ꦳ꦼꦂꦤ꧀ꦩꦼꦤ꧀</div>
-        <p>STATUS: PROBE 19546 ACTIVE | RADAR 16 PSYCHE: SCANNING...</p>
+        <p>STATUS: [📡] SCANNING DEEP SPACE | PROBE: 19546 ACTIVE</p>
     </div>
 
     <div class="radar-box">
         <div class="radar-line"></div>
-        <p style="margin-top:140px; color:var(--gold); font-size:0.7rem;">[ TARGET: 16 PSYCHE ]<br>EST. VALUE: $10 QUINTILLION</p>
+        <div id="sensor-alert" style="margin-top:140px; color:var(--gold); font-size:0.7rem; transition: 0.3s;">
+            [ TARGET: 16 PSYCHE ]<br>EST. VALUE: $10 QUINTILLION
+        </div>
     </div>
 
-    <div style="font-size: 0.8rem; color: #444;">ARCHITECT: ANDI M. HARPIANTO | WEB 5.0 QUANTUM-ERA</div>
+    <div class="status-box" id="metal-status">LOGAM MULIA: TIDAK TERDETEKSI</div>
+
+    <script>
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        function playMetalBeep() {
+            [440, 880, 1760].forEach((freq, i) => {
+                setTimeout(() => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'square';
+                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+                    gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+                    osc.connect(gain); gain.connect(audioCtx.destination);
+                    osc.start(); osc.stop(audioCtx.currentTime + 0.05);
+                }, i * 150);
+            });
+        }
+
+        // SIMULASI DETEKSI LOGAM SETIAP 12 DETIK (3 PUTARAN RADAR)
+        setInterval(() => {
+            const status = document.getElementById('metal-status');
+            const alertBox = document.getElementById('sensor-alert');
+            
+            status.innerHTML = "🚨 LOGAM MULIA TERDETEKSI! [GOLD/IRON/NICKEL]";
+            status.style.color = "#ffd700";
+            alertBox.style.textShadow = "0 0 20px #ffd700";
+            
+            playMetalBeep(); // Beep Kuantum 3 Kali!
+
+            setTimeout(() => {
+                status.innerHTML = "LOGAM MULIA: TIDAK TERDETEKSI";
+                status.style.color = "#00f2ff";
+                alertBox.style.textShadow = "none";
+            }, 3000);
+        }, 12000);
+    </script>
 </body>
 </html>
