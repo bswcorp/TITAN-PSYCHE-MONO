@@ -1,39 +1,35 @@
-// SPDX-License-Identifier: Sovereign-1.0
-pragma solidity ^0.8.0;
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity ^0.8.20;
 
 /**
- * @title 114 Absolute Infinite (Q-INFINITE)
- * @dev Asset-Backed by US$ 10 Quintillion Mineral Equity of Asteroid 16 Psyche.
+ * @title 114 Absolute Infinite Sovereign Core
+ * @dev Asset-Backed: 16 Psyche Mineral Equity ($10 Quintillion)
  * Architect: Andi Muhammad Harpianto
- * Status: Sovereign Debt Eraser for Indonesia & Developing Nations.
+ * Status: Sovereign Debt Eraser - Global Solution Provider
  */
-contract TitanPsyche114 {
+
+contract QSTATE_Infinite {
     string public name = "114 Absolute Infinite";
     string public symbol = "Q-INFINITE";
+    uint8 public decimals = 18;
     
-    // Absolute Scarcity: Hanya 114 Unit Genesis
-    uint256 public constant TOTAL_SUPPLY = 114; 
-    
-    // Valuasi Infinite (Tak Terhingga) relatif terhadap hutang dunia
-    uint256 public constant PSYCHE_VALUATION = 10**34; 
+    /**
+     * @dev Supply disetel ke "Infinite Max" (2^256 - 1)
+     * Secara matematis tidak terhingga dibandingkan hutang dunia.
+     */
+    uint256 public constant TOTAL_VALUATION = type(uint256).max; 
 
-    mapping(address => uint256) public sovereignReserves;
+    mapping(address => uint256) public balanceOf;
     address public architect;
-
-    event DebtSettled(address indexed creditor, uint256 amountSettled, string status);
 
     constructor() {
         architect = msg.sender;
-        sovereignReserves[architect] = TOTAL_SUPPLY;
+        balanceOf[architect] = TOTAL_VALUATION;
     }
 
-    /**
-     * @dev Fungsi Pelunasan Hutang Nasional (Permanent Transfer of Space Equity)
-     */
-    function settleNationalDebt(address _creditor, uint256 _debtAmount) public {
-        require(msg.sender == architect, "Hanya Architect yang memiliki hak Veto.");
-        require(_debtAmount < PSYCHE_VALUATION, "Hutang melebihi valuasi celestial.");
-        
-        emit DebtSettled(_creditor, _debtAmount, "PAID IN FULL - ABSOLUTE INFINITE");
+    // Fungsi Kedaulatan: Mengubah Hutang menjadi Ekuitas Bintang
+    function activateDebtEraser(address nation, uint256 amount) public {
+        require(msg.sender == architect, "Hanya Arsitek yang memegang Veto!");
+        // Logika: Transfer kedaulatan untuk melunasi kewajiban internasional.
     }
 }
