@@ -23,6 +23,8 @@
 * [Public Debt Ledger](ledger/sovereign_debt_ledger.log)
 * [Governance Rules](docs/WHITEPAPER.md#5-roadmap-teknis)
 * [Legal Disclaimer](README.md#legal-disclaimer)
+* * [System Architecture](docs/ARCHITECTURE.md)` di bawah bagian **Technical Documentation**.
+  * 
 
 ---
 **Status:** `ACTIVE` | **Authority:** `STG SOVEREIGN`
