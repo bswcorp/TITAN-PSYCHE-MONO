@@ -1,4 +1,3 @@
-# TITAN-PSYCHE-MONO
 # TITAN-PSYCHE-MONO (114-ABSOLUTE-INFINITE)
 
 ![Status](https://shields.io)
@@ -92,4 +91,23 @@ Indonesia is transitioning from a "debtor nation" to a "global solution provider
 
 ---
 © 2024 BSWCORP | TITAN-PSYCHE-MONO Division.
+
+
+---
+
+## 🚀 Deployment & Installation Guide (Institutional Access Only)
+
+The **TITAN-PSYCHE-MONO** infrastructure requires a high-security environment (HSM-enabled) and is intended for use by Central Bank authorities and authorized International Financial Institutions (IMF/World Bank).
+
+### ⚙️ System Requirements
+- **OS:** Sovereign-Hardened Linux (RHEL 9+ or custom Debian core).
+- **Security:** Hardware Security Module (HSM) FIPS 140-2 Level 3.
+- **Connectivity:** Dedicated Fiber Link to NASA/JPL Data Oracle.
+- **Node:** Minimum 128GB ECC RAM / 16-Core Quantum-Ready Processor.
+
+### 📥 1. Cloning the Sovereign Repository
+Access to this repository is restricted to designated Sovereign Keys. Authorized entities may clone the environment using:
+```bash
+git clone https://github.com
+cd TITAN-PSYCHE-MONO
 
