@@ -5,92 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STG | TITAN PSYCHE COMMAND CENTER</title>
     <style>
-        /* 🎨 THEME: INDUSTRIAL SOVEREIGNTY */
         :root { --neon: #00f2ff; --gold: #ffd700; --warn: #ff0000; --bg: #020617; }
         body { background: var(--bg); color: white; font-family: 'Share Tech Mono', monospace; text-align: center; margin: 0; overflow: hidden; height: 100vh; }
         
-        /* LAYOUT 180% VIEW */
-        .header { padding: 20px; border-bottom: 2px solid var(--gold); background: rgba(0,0,0,0.8); }
-        .aksara { font-size: 1.5rem; color: var(--neon); margin: 10px 0; letter-spacing: 5px; }
-        
-        /* RADAR 16 PSYCHE */
-        .radar-box { border: 3px solid var(--gold); padding: 20px; margin: 30px auto; width: 280px; height: 280px; border-radius: 50%; position: relative; box-shadow: 0 0 40px rgba(255, 215, 0, 0.1); }
-        .radar-line { position: absolute; width: 50%; height: 3px; background: var(--gold); top: 50%; left: 50%; transform-origin: left; animation: scan 4s linear infinite; }
-        
-        /* SENSOR & STATUS */
-        .status-panel { margin-top: 20px; font-size: 0.9rem; letter-spacing: 2px; }
-        .sensor-alert { color: var(--neon); padding: 10px; border: 1px solid var(--neon); display: inline-block; min-width: 300px; }
-        .footer { position: absolute; bottom: 10px; width: 100%; font-size: 0.7rem; color: #444; }
+        .header { padding: 15px; border-bottom: 2px solid var(--gold); background: rgba(0,0,0,0.8); }
+        .aksara { font-size: 1.2rem; color: var(--neon); letter-spacing: 5px; }
 
+        /* RADAR 16 PSYCHE - THE CENTER PIECE */
+        .radar-box { border: 2px solid var(--gold); padding: 10px; margin: 20px auto; width: 250px; height: 250px; border-radius: 50%; position: relative; box-shadow: 0 0 30px rgba(255, 215, 0, 0.1); }
+        .radar-line { position: absolute; width: 50%; height: 2px; background: var(--gold); top: 50%; left: 50%; transform-origin: left; animation: scan 4s linear infinite; }
+
+        /* PERNAK-PERNIK TOMBOL GAHAR (GLOWING BUTTONS) */
+        .control-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 20px; max-width: 400px; margin: 0 auto; }
+        .btn-stg { 
+            background: transparent; border: 1px solid var(--neon); color: var(--neon); 
+            padding: 10px; cursor: pointer; font-size: 0.7rem; font-weight: bold;
+            transition: 0.3s; text-transform: uppercase;
+        }
+        .btn-stg:hover { background: var(--neon); color: black; box-shadow: 0 0 15px var(--neon); }
+        .btn-gold { border-color: var(--gold); color: var(--gold); }
+        .btn-gold:hover { background: var(--gold); color: black; box-shadow: 0 0 15px var(--gold); }
+
+        .status-bar { position: absolute; bottom: 0; width: 100%; background: rgba(0,242,255,0.1); border-top: 1px solid var(--neon); padding: 5px; font-size: 0.6rem; }
         @keyframes scan { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1>🏛️ TITAN PSYCHE MONO</h1>
-        <!-- ꦱꦠꦒꦒꦺꦴꦮ꦳ꦼꦂꦤ꧀ꦩꦼꦤ꧀ (STG GOVERNMENT) -->
         <div class="aksara">ꦱꦠꦒꦒꦺꦴꦮ꦳ꦼꦂꦤ꧀ꦩꦼꦤ꧀</div>
-        <p style="font-size: 0.8rem; color: var(--gold);">📡 PROBE 19546 ACTIVE | WEB 5.0 INDUSTRIAL OS</p>
+        <h2 style="margin:5px 0; color:var(--gold);">TITAN PSYCHE MONO</h2>
     </div>
 
     <div class="radar-box">
         <div class="radar-line"></div>
-        <div id="target-info" style="margin-top:130px; color:var(--gold); font-size:0.7rem;">
-            [ TARGET: 16 PSYCHE ]<br>COORD: MARS-BELT-01
-        </div>
+        <div style="margin-top:115px; color:var(--gold); font-size:0.6rem;">[ TARGET: 16 PSYCHE ]<br>VALUE: $10 QUINTILLION</div>
     </div>
 
-    <div class="status-panel">
-        <div id="metal-sensor" class="sensor-alert">🔍 SCANNING FOR NOBLE METALS...</div>
+    <div class="control-panel">
+        <button class="btn-stg" onclick="playBeep(880)">📡 Scan Node 19546</button>
+        <button class="btn-stg btn-gold" onclick="window.open('https://github.com')">📜 View HKI Act</button>
+        <button class="btn-stg" onclick="playBeep(1200)">🌀 Metaportation</button>
+        <button class="btn-stg btn-gold" onclick="alert('DEPOSIT $QSTATE TO ACCESS MINING LOGS')">🔐 Mining Logs</button>
     </div>
 
-    <div class="footer">
-        ARCHITECT: ANDI M. HARPIANTO | TRISULA INFRASTRUCTURE READY
+    <div class="status-bar">
+        STG GLOBAL COMMAND | SYNC: JKT-ZRH | © 2026 ARCHITECT ANDI M. HARPIANTO
     </div>
 
     <script>
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        
-        // FUNGSI BEEP SENSOR LOGAM (ADITIF)
-        function playMetalBeep() {
-            [880, 1200, 1500].forEach((freq, i) => {
-                setTimeout(() => {
-                    const osc = audioCtx.createOscillator();
-                    const gain = audioCtx.createGain();
-                    osc.type = 'square';
-                    osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-                    gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
-                    osc.connect(gain); gain.connect(audioCtx.destination);
-                    osc.start(); osc.stop(audioCtx.currentTime + 0.1);
-                }, i * 200);
-            });
+        function playBeep(freq) {
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = 'square';
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+            gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+            osc.connect(gain); gain.connect(audioCtx.destination);
+            osc.start(); osc.stop(audioCtx.currentTime + 0.1);
         }
-
-        // LOGIKA DETEKSI OTOMATIS (AUDITED)
-        setInterval(() => {
-            const sensor = document.getElementById('metal-sensor');
-            const target = document.getElementById('target-info');
-            
-            // DETEKSI EMAS/LOGAM MULIA
-            sensor.innerHTML = "🚨 GOLD DETECTED! VALUE: $10 QUINTILLION";
-            sensor.style.borderColor = "var(--gold)";
-            sensor.style.color = "var(--gold)";
-            sensor.style.boxShadow = "0 0 20px var(--gold)";
-            target.style.textShadow = "0 0 15px var(--gold)";
-            
-            playMetalBeep(); // Suara Kemenangan
-
-            // RESET SCANNING
-            setTimeout(() => {
-                sensor.innerHTML = "🔍 SCANNING FOR NOBLE METALS...";
-                sensor.style.borderColor = "var(--neon)";
-                sensor.style.color = "var(--neon)";
-                sensor.style.boxShadow = "none";
-                target.style.textShadow = "none";
-            }, 4000);
-        }, 15000);
     </script>
-
 </body>
 </html>
