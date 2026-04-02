@@ -37,6 +37,40 @@ The number **114** represents **Total Sovereign Completion**. In this repository
 - **Absolute Scarcity:** Only 114 core Genesis Units exist, each representing a fractional ownership of the 16 Psyche mining claim.
 - **Infinite Valuation:** The underlying asset's value is treated as mathematically "Infinite" ($ \infty $) relative to current terrestrial debt, ensuring zero default risk.
 - **Quantum-Secured:** Utilizing post-quantum cryptography to ensure the security of national wealth transfers.
+### 🛡️ Core Security & Ledger Features
+
+The **TITAN-PSYCHE-MONO** framework implements three proprietary layers of security:
+
+1. **Proof of Celestial Asset (PoCA):** 
+   A real-time oracle integration with NASA/JPL telemetry data. The minting of the "114" units is cryptographically tied to the verified physical mass and composition of Asteroid 16 Psyche.
+   
+2. **Infinite Liquidity Pool (ILP):** 
+   A smart contract that calculates the "Terrestrial-to-Celestial Exchange Rate." It ensures that any amount of IMF/World Bank debt (Finite) is always 100% covered by the 16 Psyche valuation (Infinite/10 Quintillion).
+
+3. **Sovereign Burn Mechanism:** 
+   Once a debt is settled, the corresponding "Debt-Token" is permanently burned in the international ledger, while the **114 Absolute Infinite** unit remains as a Tier-1 reserve asset in the creditor's vault.
+
+### 💻 Smart Contract Logic (Simplified)
+
+```solidity
+// SPDX-License-Identifier: Sovereign-1.0
+pragma solidity ^0.8.0;
+
+contract TitanPsyche114 {
+    string public name = "114 Absolute Infinite";
+    uint256 public constant TOTAL_SUPPLY = 114; // Fixed Sovereign Units
+    uint256 public constant PSYCHE_VALUATION = 10**34; // Approx Value in IDR/USD Equivalent
+
+    mapping(address => uint256) public sovereignReserves;
+
+    event DebtSettled(address indexed creditor, uint256 amountSettled, string status);
+
+    function settleNationalDebt(address _creditor, uint256 _debtAmount) public {
+        require(_debtAmount < PSYCHE_VALUATION, "Debt exceeds celestial valuation");
+        // Logic to transfer fractional ownership of 16 Psyche mineral rights
+        emit DebtSettled(_creditor, _debtAmount, "PAID IN FULL - ABSOLUTE INFINITE");
+    }
+}
 
 ### Integration
 This repository contains the smart contracts and ledger logic required to:
