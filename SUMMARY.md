@@ -3,7 +3,8 @@
 ## 🌌 Core Concept
 * [Introduction](README.md)
 * [Vision & Philosophy](docs/TERMINOLOGY.md#vision)
-* [The 114 Protocol Explained](docs/TERMINOLOGY.md#protocol-114)
+* [The 114 Protocol Explained](docs/TERMINOLOGY.md#protocol-114
+* [Monetary Policy](docs/MONETARY_POLICY.md)
 
 ## 🔬 Technical Documentation
 * [Whitepaper (STG-V1)](docs/WHITEPAPER.md)
