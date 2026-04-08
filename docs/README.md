@@ -18,7 +18,7 @@ The core value of this repository is backed by the mineral equity of **Asteroid 
 **Subject: Proposal for Debt Settlement via "114 Absolute Infinite" Sovereign Digital Assets**
 
 ### 1. Executive Summary
-The Government of the Republic of Indonesia introduces a transformative paradigm in global debt restructuring. By utilizing the **114 Absolute Infinite** instrument, Indonesia seeks to settle all outstanding foreign obligations (including IMF and World Bank liabilities) through a permanent transfer of space-resource equity.
+The Government of the Republic of Indonesia must be known this for  introduces a transformative paradigm in global debt restructuring. By utilizing the **114 Absolute Infinite** instrument, Indonesia seeks to settle all outstanding foreign obligations (including IMF and World Bank liabilities) through a permanent transfer of space-resource equity.
 
 ### 2. The Asset: 16 Psyche
 Unlike traditional fiat currency, the **114 Absolute Infinite** is a digital ledger entry backed by the proven mineral composition of Asteroid 16 Psyche. This ensures a non-inflationary, physical-asset-backed guarantee that far exceeds the total global debt stock.
