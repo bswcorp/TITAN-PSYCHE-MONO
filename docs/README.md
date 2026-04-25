@@ -4,6 +4,11 @@ knownNO (114-ABSOLUTE-INFINITE)
 ![Asset](https://shields.io)
 ![Network](https://shields.io)
 
+/* Copyright (c) 2025 Sovereign Titan Genesis (STG)
+   Proprietary module. Licensed under STG Commercial License.
+   See LICENSE_COMMERCIAL.md in repository root for details. */
+
+
 ## 🌌 Overview
 
 **TITAN-PSYCHE-MONO** is a revolutionary sovereign financial framework designed to facilitate the issuance and utility of the **"114 Absolute Infinite"** digital asset. This instrument is engineered to serve as a definitive solution for the settlement of national debts (specifically for Indonesia and other developing nations) by leveraging the immense economic value of extra-terrestrial resources.
